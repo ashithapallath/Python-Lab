@@ -3,10 +3,9 @@
   "nbformat_minor": 0,
   "metadata": {
     "colab": {
-      "name": "Untitled11.ipynb",
+      "name": "Untitled13.ipynb",
       "provenance": [],
-      "collapsed_sections": [],
-      "authorship_tag": "ABX9TyMqTRE/boy/uV7CSyCceqGO",
+      "authorship_tag": "ABX9TyN6cvJFENejQNE97YE9W4IZ",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -30,66 +29,87 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 1,
       "metadata": {
-        "id": "z2l00NaJyOXH"
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Nwh-p4400Jye",
+        "outputId": "079108a1-fbab-4400-be03-f311c054462b"
       },
-      "outputs": [],
-      "source": [
-        "#Develop a program to read the employees' name,code,basicpay....\n",
-        "def employee():\n",
-        "  name=str(input(' enter name of employee'))\n",
-        "  code=int(input(' enter code of employee'))\n",
-        "  Bpay=int(input(' enter basic pay of employee'))\n",
-        "  print('**********PAYMENT SLIP**********')\n",
-        "  print('Name of the employee:',name)\n",
-        "  print('Code of the employee:',code)\n",
-        "  print('Basic pay of the employee',Bpay)\n",
-        "  return name,code,Bpay\n",
-        "\n",
-        "def calculate():\n",
-        "  name,code,Bpay=employee()\n",
-        "  if Bpay<10000:\n",
-        "    GrossSalary= (Bpay+5+2.5+500)\n",
-        "    Deduction=(20+8+0)\n",
-        "    Netsalary=(GrossSalary-Deduction)\n",
-        "    print('Gross salary=',GrossSalary)\n",
-        "    print('Deduction=',Deduction)\n",
-        "    print('Net Salary=',NetSalary)\n",
-        "  elif Bpay>10000 and Bpay<30000:\n",
-        "    GrossSalary= (Bpay+7.5+5+2500) \n",
-        "    Deduction=(60+8+0)\n",
-        "    NetSalary=(GrossSalary-Deduction)\n",
-        "    print('Gross salary=',GrossSalary)\n",
-        "    print('Deduction=',Deduction)\n",
-        "    print('Net Salary=',NetSalary)\n",
-        "  elif Bpay>30000 and Bpay<50000:\n",
-        "    GrossSalary= (Bpay+11+7.5+5000) \n",
-        "    Deduction=(60+11+11)\n",
-        "    NetSalary=(GrossSalary-Deduction)\n",
-        "    print('Gross salary=',GrossSalary)\n",
-        "    print('Deduction=',Deduction)\n",
-        "    print('Net Salary=',NetSalary)\n",
-        "  else :\n",
-        "    GrossSalary= (Bpay+25+11+7000)\n",
-        "    Deduction=(80+12+20)\n",
-        "    NetSalary=(GrossSalary-Deduction)\n",
-        "    print('Gross salary=',GrossSalary)\n",
-        "    print('Deduction=',Deduction)\n",
-        "    print('Net Salary=',NetSalary)\n",
-        "calculate()\n"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        ""
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a string:abcd\n",
+            "Sub strings are:\n",
+            "a\n",
+            "ab\n",
+            "abc\n",
+            "abcd\n",
+            "b\n",
+            "bc\n",
+            "bcd\n",
+            "c\n",
+            "cd\n",
+            "d\n",
+            "Enter value of the length:2\n",
+            "ab\n",
+            "bc\n",
+            "cd\n",
+            "Enter number of distinct charecters:3\n",
+            "\n",
+            "ab\n",
+            "bc\n",
+            "cd\n",
+            "Not palindrome\n"
+          ]
+        }
       ],
-      "metadata": {
-        "id": "asinTRs4y-we"
-      },
-      "execution_count": null,
-      "outputs": []
+      "source": [
+        "#5.Develop a program to read a string and perform \n",
+        " #.print all possible substring\n",
+        " #.print all possoible substrings of length k\n",
+        " #.print all possoible substrings of length k with N distinctcharacters\n",
+        " #.print all paliandrome substrings\n",
+        "str=input(\"Enter a string:\")\n",
+        "def strings(str):\n",
+        "  size=len(str)\n",
+        "  print(\"Sub strings are:\")\n",
+        "  for i in range(size):\n",
+        "    for j in range(i,size):\n",
+        "      print(str[i:j+1])\n",
+        "strings(str)  \n",
+        "k=int(input(\"Enter value of the length:\"))\n",
+        "def length_string(str,k):\n",
+        "  size=len(str)\n",
+        "  for i in range(0,size+1):\n",
+        "    for j in range(i+1,size+1):\n",
+        "      s=str[i:j]\n",
+        "      if len(s)==k:\n",
+        "         print(s)\n",
+        "length_string(str,k)\n",
+        "n=int(input(\"Enter number of distinct charecters:\"))\n",
+        "def n_distinct(str,k):\n",
+        "  size=len(str)\n",
+        "  print()\n",
+        "  for i in range(0,size+1):\n",
+        "    for j in range(i+1,size+1):\n",
+        "       s=str[i:j]\n",
+        "       distinct=set(s)\n",
+        "       if len(s)==k:\n",
+        "          if (len(distinct)==k):\n",
+        "            print(s)\n",
+        "n_distinct(str,k)\n",
+        "def palindrome_string():\n",
+        "  p=str[::-1]\n",
+        "  if(p==str):\n",
+        "     print(\"Palindrome of given string is:\",p)\n",
+        "  else:\n",
+        "      print(\"Not palindrome\")\n",
+        "palindrome_string()\n"
+      ]
     }
   ]
 }
