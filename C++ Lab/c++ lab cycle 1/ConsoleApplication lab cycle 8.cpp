@@ -1,42 +1,64 @@
 #include<iostream>
 using namespace std;
-class complex
+
+class complex_no
 {
-	float x, y;
+    int real, imag;
 public:
-	complex(){}
-	complex(float a) { x = y = a; }
-	complex(float real,float imag)
-	{
-		x = real;
-		y = imag;
-	}
-	friend complex sum(complex, complex);
-	friend void show(complex);
+    complex_no()
+    {
+        real = 0;
+        imag = 0;
+    }
+    complex_no(int i)
+    {
+        real = i;
+        imag = i;
+    }
+    complex_no(int a, int b)
+    {
+        real = a;
+        imag = b;
+    }
+
+    void add(complex_no c1, complex_no c2)
+    {
+        real = c1.real + c2.real;
+        imag = c1.imag + c2.imag;
+    }
+    void display()
+    {
+        cout << real << "+" << imag << "i";
+    }
 };
-complex sum(complex c1, complex c2)
-{
-	complex c3;
-	c3.x = c1.x + c2.x;
-	c3.y = c1.y + c2.y;
-	return (c3);
-}
-void show(complex c)
-{
-	cout << c.x << "+ j" << c.y << "\n";
-}
+
 int main()
 {
-	complex P, Q, R;
+    int real, imag;
+    cout << "\n Enter one value for real and imaginary parts of the first complex number : ";
+    cin >> real;
+    complex_no c1(real);
 
-	P = complex(2.5, 3.9);
-	Q = complex(1.6, 2.5);
-	R = sum(P, Q);
+    cout << "\n First complex number is given by- ";
+    c1.display();
 
-	cout << "\n";
-	cout << "P="; show(P);
-	cout << "Q="; show(Q);
-	cout << "R="; show(R);
-	return 0;
+    cout << "\n\n Enter different values for real and imaginary parts of the second complex number : ";
+    cin >> real >> imag;
+    complex_no c2(real, imag);
 
+    cout << "\n Second complex number is given by - ";
+    c2.display();
+
+    complex_no c3;
+    cout << "\n\n Initially third complex number is - ";
+    c3.display();
+
+    c3.add(c1, c2);
+
+    cout << "\n\n Third complex number is given by - ";
+    c3.display();
+
+    cout << "\n";
+
+    return 0;
 }

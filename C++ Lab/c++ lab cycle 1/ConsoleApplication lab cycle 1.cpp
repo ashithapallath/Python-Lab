@@ -2,35 +2,34 @@
 using namespace std;
 
 
-class stud
+class student
 {
-    int rollno, sub1, sub2, sub3;
-    string name, grade;
+    string name;
+    int roll_no;
+    float mark1, mark2, mark3;
+    char grade;
 
 public:
     void data_manipulation(void);
-    string calculate_grade(void);
+    char calculate_grade(void);
+    void display();
 };
 
 void stud::data_manipulation(void)
 {
-    cout << "enter roll\n";
-    cin >> rollno;
-    cout << "enter name\n";
+    cout << "Enter the Name :";
     cin >> name;
-    cout << "enter mark of sub1\n";
-    cin >> sub1;
-    cout << "enter mark of sub2\n";
-    cin >> sub2;
-    cout << "enter mark of sub3\n";
-    cin >> sub3;
+    cout << "Enter the Roll number:";
+    cin >> roll_no;
+    cout << "Enter the marks of 3 subjects:";
+    cin >> mark1 >> mark2 >> mark3;
 
 }
 
-string stud::calculate_grade(void)
+char student::calculate_grade(void)
 {
-    string grade;
-    int avg = (sub1 + sub2 + sub3) / 3;
+    float totalMark;
+    totalMark = (mark1 + mark2 + mark3) / 3;
     cout << "Grade: ";
     if (avg >= 91)
         grade = "A+";
@@ -49,16 +48,21 @@ string stud::calculate_grade(void)
     cout << grade << endl;
     return grade;
 }
-
+void student::display()
+{
+    cout << "Student Name : " << name << endl;
+    cout << "Roll number : " << roll_no << endl;
+    cout << "Mark of subject 1: " << mark1 << "\nMark of subject 2: " << mark2 << "\nMark of subject 3: " << mark3 << endl;
+    cout << "Total Grade: " << grade;
+}
 int main()
 {
-    string tf;
-    stud s;
-    while (true)
-    {
-
+   
+        student s;
         s.data_manipulation();
         s.calculate_grade();
+        s.display();
+
         cout << "do you want to continue(y/n): ";
         cin >> tf;
         if (tf == "y" or tf == "Y")
@@ -66,5 +70,6 @@ int main()
         else
             cout << "exiting...";
         return false;
-    }
+    
+    
 }
