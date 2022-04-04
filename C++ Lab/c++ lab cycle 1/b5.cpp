@@ -1,4 +1,4 @@
-##include<iostream>
+#include<iostream>
 using namespace std;
 int count = 0;
 class execute
@@ -56,7 +56,7 @@ void execute::addmatrix(execute& O1, execute& O2)
             m[i][j] = O1.m[i][j] + O2.m[i][j];
         }
     }
-    cout << "Resultant matrix is:\n";
+    cout << "Resultant of matrix is:\n";
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)
@@ -69,7 +69,7 @@ void execute::addmatrix(execute& O1, execute& O2)
 
 int main()
 {
-    cout << "Entering in main function\n";
+    cout << "Enter to main function\n";
     int row1, col1, row2, col2, i, j, value;
     cout << "1.Add matrix:\n";
     cout << "Enter rows and columns of the first matrix:\n";
@@ -108,3 +108,4 @@ int main()
         cout << "Matrix addition not possible!!\n";
     return 0;
 }
+

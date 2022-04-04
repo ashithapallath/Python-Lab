@@ -26,11 +26,19 @@ void Complex::show(Complex c)
 	cout << c.x << " +j" << c.y << "\n";
 }
 int main()
-{
+{ float a,b,c,d;
 	Complex A, B, C;
-	A.input( 4.1,5.5 );
-	B.input( 3.7,2.1 );
-
+	cout<<"Enter the realpart of first number:";
+	cin>>a;
+	cout<<"Enter the imaginarypart of first number:";
+	cin>>b;
+	cout<<"Enter the realpart of second  number:";
+	cin>>c;
+	cout<<"Enter the imaginarypart of second number:";
+	cin>>d;
+	A.input( a,b);
+	B.input( c,d);
+	
 	C = sum(A, B);
 	cout << "A ="; A.show(A);
 	cout << "B ="; B.show(B);
@@ -40,5 +48,6 @@ int main()
 
 
 }
+
 
 
